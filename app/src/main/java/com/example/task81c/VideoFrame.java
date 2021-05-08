@@ -28,36 +28,14 @@ public class VideoFrame extends YouTubeBaseActivity {
         youTubePlayerView = (YouTubePlayerView) findViewById(R.id.youtubePlayer);
         btnPlay = findViewById(R.id.play);
 
-        onInitializedListener = new YouTubePlayer.OnInitializedListener() {
-            @Override
-            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
-                Toast.makeText(VideoFrame.this,"Done Initializing", Toast.LENGTH_SHORT).show();
-                youTubePlayer.cueVideo("W4hTJybfU7s");
-
-            }
-
-            @Override
-            public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
-                Toast.makeText(VideoFrame.this,"Fail", Toast.LENGTH_SHORT).show();
-            }
-        };
-
-        btnPlay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(VideoFrame.this,"Initializing", Toast.LENGTH_SHORT).show();
-                youTubePlayerView.initialize(YouTubeAPI.getApiKey(), onInitializedListener);
-                Toast.makeText(VideoFrame.this,"Done Initializing", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-/*        Intent i = getIntent();
+        Intent i = getIntent();
 
         youTubePlayerView.initialize(YouTubeAPI.getApiKey(), new YouTubePlayer.OnInitializedListener() {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
                 if(!b){
-                    youTubePlayer.loadVideo(i.getStringExtra("url"));
+                    Toast.makeText(VideoFrame.this,"Done Initializing", Toast.LENGTH_SHORT).show();
+                    youTubePlayer.cueVideo(i.getStringExtra("url"));
                 }
             }
 
@@ -65,7 +43,15 @@ public class VideoFrame extends YouTubeBaseActivity {
             public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
                 Toast.makeText(VideoFrame.this,"Failed to Initialize", Toast.LENGTH_SHORT).show();
             }
-        });*/
+        });
+
+        btnPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(VideoFrame.this,"Initializing", Toast.LENGTH_SHORT).show();
+                youTubePlayerView.initialize(YouTubeAPI.getApiKey(), onInitializedListener);
+            }
+        });
 
     }
 }
