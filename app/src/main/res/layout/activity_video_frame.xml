@@ -4,35 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".VideoFrame">
 
-
-    <TextView
-        android:id="@+id/lblUrl"
-        android:layout_width="0dp"
+    <view
+        android:id="@+id/youtubePlayer"
+        class="com.google.android.youtube.player.YouTubePlayerView"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:text="YouTube URL:"
-        android:gravity="center_vertical"
-        android:textSize="23sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@id/lblUrlLeft"
-        app:layout_constraintEnd_toEndOf="@id/lblUrlRight"
-        app:layout_constraintTop_toBottomOf="@id/lblUrlTop"
-        app:layout_constraintBottom_toTopOf="@id/lblUrlBot"/>
-
-    <EditText
-        android:id="@+id/url"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center_vertical"
-        android:textSize="23sp"
-        android:textStyle="bold"
-        android:background="@drawable/edit_text_border"
-        app:layout_constraintStart_toStartOf="@id/txtUrlLeft"
-        app:layout_constraintEnd_toEndOf="@id/txtUrlRight"
-        app:layout_constraintTop_toBottomOf="@id/lblUrlTop"
-        app:layout_constraintBottom_toTopOf="@id/lblUrlBot"/>
-
+        app:layout_constraintTop_toBottomOf="@id/videoTop"
+        app:layout_constraintBottom_toTopOf="@id/videoBot"/>
 
     <Button
         android:id="@+id/play"
@@ -50,46 +30,18 @@
 
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/lblUrlTop"
+        android:id="@+id/videoTop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.4"/>
+        app:layout_constraintGuide_percent="0.1"/>
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/lblUrlBot"
+        android:id="@+id/videoBot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.5"/>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/lblUrlLeft"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.05"/>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/lblUrlRight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.45"/>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/txtUrlLeft"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.47"/>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/txtUrlRight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.95"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/playBtnLeft"
@@ -118,7 +70,5 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.7"/>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
