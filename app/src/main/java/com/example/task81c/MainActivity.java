@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, VideoFrame.class);
                 String fullUrl = url.getText().toString();
+                //Getting the part needed from the video URL
                 String half = fullUrl.substring(fullUrl.indexOf("=") + 1, fullUrl.indexOf("&"));//Getting the part needed from the video URL
                 System.out.println(half);
                 intent.putExtra("url", half);
